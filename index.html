@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dia dos Namorados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <div class="container">
+    <h1 class="titulo">Dia dos Namorados</h1>
+
+    <div class="video-container">
+      <iframe 
+        src="" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="bloco-inferior">
+      <p>Surpreenda quem você ama com um momento especial!</p>
+    </div>
+
+    <a href="#" class="botao-link">Descubra mais</a>
+  </div>
+
+  <script>
+    // Animação de corações subindo
+    const container = document.getElementById('hearts-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
