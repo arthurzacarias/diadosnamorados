@@ -119,4 +119,14 @@ body {
       opacity: 0;
     }
   }
+
+  /* Estilo para botão trancado */
+.botao-link.trancado {
+    background-color: #aaa;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+
+  
   

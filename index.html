@@ -24,11 +24,11 @@
       <p>Surpreenda quem você ama com um momento especial!</p>
     </div>
 
-    <a href="#" class="botao-link">Descubra mais</a>
+    <a id="lockedButton" class="botao-link trancado" href="javascript:void(0)">🔒 Trancado</a>
   </div>
 
   <script>
-    // Animação de corações subindo
+    // Animação de corações
     const container = document.getElementById('hearts-container');
 
     function createHeart() {
@@ -44,6 +44,37 @@
     }
 
     setInterval(createHeart, 300);
+
+    // Controle do botão com senha
+    const botao = document.getElementById('lockedButton');
+    const liberacao = new Date('2025-06-14T14:22:00-03:00');
+
+    let desbloqueado = false;
+
+    function verificarBotao() {
+      const agora = new Date();
+
+      if (agora >= liberacao && !desbloqueado) {
+        desbloqueado = true;
+
+        botao.classList.remove('trancado');
+        botao.textContent = "🎁 Abrir Presente";
+        botao.style.cursor = 'pointer';
+        botao.style.pointerEvents = 'auto';
+
+        botao.addEventListener('click', () => {
+          const senha = prompt("Digite a senha para continuar:");
+          if (senha === "12/12") {
+            window.location.href = "https://example.com"; // <-- Substitua com seu link
+          } else {
+            alert("Senha incorreta! Dica: o dia e mês que nos representa.");
+          }
+        });
+      }
+    }
+
+    verificarBotao();
+    setInterval(verificarBotao, 10000);
   </script>
 </body>
 </html>
